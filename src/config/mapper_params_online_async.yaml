@@ -1,0 +1,67 @@
+slam_toolbox:
+  ros__parameters:
+
+    # Plugin params (keep defaults; Ceres is fine)
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_SCHUR            # Better for pose-graph SLAM
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: HUBER                   # Robust to loop closure outliers
+
+    # ROS Parameters
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    scan_topic: /scan
+    use_map_saver: true
+    mode: mapping
+
+    debug_logging: false
+    throttle_scans: 1
+    transform_publish_period: 0.02
+    map_update_interval: 2.0                     # Update map more frequently
+    resolution: 0.05                             # 5 cm is sufficient (saves memory)
+    max_laser_range: 8.0                         # Match LIMO’s typical LiDAR (e.g., RPLIDAR)
+    minimum_time_interval: 0.2                   # Process scans more often (LIMO is agile)
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+    stack_size_to_use: 40000000
+    enable_interactive_mode: true
+
+    # General Parameters
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.2                 # Lower: LIMO moves in small increments
+    minimum_travel_heading: 0.15                 # ~8.6 degrees (detect tighter turns)
+    scan_buffer_size: 20                         # Larger buffer improves loop recall
+    scan_buffer_maximum_scan_distance: 8.0       # Match max_laser_range
+    link_match_minimum_response_fine: 0.1  
+    link_scan_maximum_distance: 1.0              # Reduce for indoor spaces
+    loop_search_maximum_distance: 6.0            # Search farther for loops in larger areas
+    do_loop_closing: true 
+    loop_match_minimum_chain_size: 5             # Accept shorter but consistent chains
+    loop_match_maximum_variance_coarse: 2.0      # Tighter variance for reliability  
+    loop_match_minimum_response_coarse: 0.3      
+    loop_match_minimum_response_fine: 0.4        # Slightly relaxed to accept valid loops
+
+    # Correlation Parameters - Scan Matching
+    correlation_search_space_dimension: 0.8      # Wider search (odometry may drift slightly)
+    correlation_search_space_resolution: 0.02    # Slightly coarser for speed
+    correlation_search_space_smear_deviation: 0.15  # Handle LiDAR noise
+
+    # Correlation Parameters - Loop Closure
+    loop_search_space_dimension: 10.0            # Larger loop search (for bigger rooms)
+    loop_search_space_resolution: 0.05           # Keep coarse for efficiency
+    loop_search_space_smear_deviation: 0.04
+
+    # Scan Matcher Parameters
+    distance_variance_penalty: 0.6               # Slightly higher weight on translation
+    angle_variance_penalty: 1.2                  # Prioritize heading accuracy
+
+    fine_search_angle_offset: 0.0087             # ±0.5 degrees (finer refinement)
+    coarse_search_angle_offset: 0.5236           # ±30 degrees (covers odometry error)
+    coarse_angle_resolution: 0.0175              # 1 degree steps (better accuracy)
+    minimum_angle_penalty: 0.8                   # Slightly relaxed
+    minimum_distance_penalty: 0.4                # Slightly relaxed
+    use_response_expansion: true
