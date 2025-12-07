@@ -2390,9 +2390,12 @@
               <radius>0.5</radius>
             </sphere>
           </geometry>
-          <material>
-            <ambient>1 0 0 1</ambient>
-            <diffuse>1 0 0 1</diffuse>
+                   <material>
+            <!-- Green material -->
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 1</emissive>
           </material>
         </visual>
         <self_collide>0</self_collide>
