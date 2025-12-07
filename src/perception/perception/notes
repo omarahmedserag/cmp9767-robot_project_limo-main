@@ -1,0 +1,50 @@
+#cd /workspaces/cmp9767-robot_project_limo-main
+#colcon build --packages-select perception
+#source /opt/ros/humble/setup.bash
+#source install/setup.bash
+#install/perception/bin/detector_basic
+# this is used to run the detector node directly after building
+#cd /workspaces/cmp9767-robot_project_limo-main
+#source /opt/ros/humble/setup.bash
+#source install/setup.bash
+
+#ros2 topic echo /object_polygon
+# to print out the detected object polygon messages
+
+#Run your detector node
+#In a third terminal:
+
+#bash
+#cd /workspaces/cmp9767-robot_project_limo-main
+#source /opt/ros/humble/setup.bash
+#source install/setup.bash
+
+#install/perception/bin/detector_basic
+#This executes the DetectorBasic node defined in perception/detector_basic.py, which:
+
+#Subscribes to /limo/depth_camera_link/image_raw.
+
+#Converts images via CvBridge.
+
+#Thresholds red pixels, finds contours, and computes bounding boxes.
+
+Publishes PolygonStamped messages on /object_polygon.
+
+Shows colour image and detection mask windows via OpenCV.​​
+
+5. Verify detection output
+Optional checks in additional terminals:
+
+Confirm the node is running:
+
+bash
+#ros2 node list
+# should include /detector_basic
+#Confirm image traffic:
+
+#bash
+#ros2 topic echo /limo/depth_camera_link/image_raw --once
+#Confirm detections:
+
+#bash
+#ros2 topic echo /object_polygon
