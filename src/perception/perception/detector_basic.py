@@ -40,7 +40,7 @@ class DetectorBasic(Node):
         hsv = cv.cvtColor(bgr_image, cv.COLOR_BGR2HSV)
 
         # Threshold all coloured pixels: high saturation, ignore gray/white/black
-        # Tune these if needed: S>60 and V>50 is a good start.
+        # Tuning these values  S>60 and V>50 is the main technique.
         lower = (0, 60, 50)    # H 0–179 (full range), S/V thresholds
         upper = (179, 255, 255)
         bgr_thresh = cv.inRange(hsv, lower, upper)

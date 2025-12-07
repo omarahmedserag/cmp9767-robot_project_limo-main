@@ -19,8 +19,10 @@ setup(
     license='TODO',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [
-            'detector_basic = perception.detector_basic:main',
-        ],
-    },
+    'console_scripts': [
+        'detector_basic = perception.detector_basic:main',
+        'controller_vision = perception.controller_vision:main',
+    ],
+},
+
 )

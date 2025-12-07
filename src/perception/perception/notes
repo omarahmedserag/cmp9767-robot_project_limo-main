@@ -28,16 +28,16 @@
 
 #Thresholds red pixels, finds contours, and computes bounding boxes.
 
-Publishes PolygonStamped messages on /object_polygon.
+#Publishes PolygonStamped messages on /object_polygon.
 
-Shows colour image and detection mask windows via OpenCV.​​
+#Shows colour image and detection mask windows via OpenCV.​​
 
-5. Verify detection output
-Optional checks in additional terminals:
+#5. Verify detection output
+#Optional checks in additional terminals:
 
-Confirm the node is running:
+#Confirm the node is running:
 
-bash
+#bash
 #ros2 node list
 # should include /detector_basic
 #Confirm image traffic:
