@@ -45,6 +45,14 @@
 #bash
 #ros2 topic echo /limo/depth_camera_link/image_raw --once
 #Confirm detections:
-
+#cd /workspaces/cmp9767-robot_project_limo-main
+#source /opt/ros/humble/setup.bash
+#source install/setup.bash
+#use the above three commands before runing the perception controller node
 #bash
 #ros2 topic echo /object_polygon
+#ros2 run perception controller_vision 
+  #--ros-args -p mode:="bang_bang_hyst" -p image_width:=640 \
+             #-p ang_speed:=0.3 -p hyst_threshold:=40.0
+
+             
