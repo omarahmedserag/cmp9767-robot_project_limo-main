@@ -1,0 +1,12 @@
+<!-- models/first_aid_kit/model.sdf -->
+<sdf version="1.6">
+  <model name="first_aid_kit"><static>true</static>
+    <link name="box"><pose>0 0 0.07 0 0 0</pose>
+      <collision name="col"><geometry><box><size>0.28 0.18 0.14</size></box></geometry></collision>
+      <visual name="vis">
+        <geometry><box><size>0.28 0.18 0.14</size></box></geometry>
+        <material><ambient>0 0.5 0 1</ambient><diffuse>0 0.5 0 1</diffuse></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

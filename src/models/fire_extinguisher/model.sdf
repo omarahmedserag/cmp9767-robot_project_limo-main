@@ -1,0 +1,14 @@
+<!-- models/fire_extinguisher/model.sdf -->
+<sdf version="1.6">
+  <model name="fire_extinguisher"><static>true</static>
+    <link name="body"><pose>0 0 0.35 0 0 0</pose>
+      <collision name="col">
+        <geometry><cylinder><radius>0.06</radius><length>0.45</length></cylinder></geometry>
+      </collision>
+      <visual name="vis">
+        <geometry><cylinder><radius>0.06</radius><length>0.45</length></cylinder></geometry>
+        <material><ambient>0.8 0 0 1</ambient><diffuse>0.8 0 0 1</diffuse></material>
+      </visual>
+    </link>
+  </model>
+</sdf>
