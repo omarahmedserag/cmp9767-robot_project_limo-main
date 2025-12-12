@@ -1,24 +1,22 @@
 
 <?xml version='1.0' ?>
 <sdf version='1.6'>
-  <model name='Extinguisher'>
+  <model name='Fire Extinguisher'>
     <static>true</static>
     <link name='link'>
       <collision name='collision'>
         <geometry>
           <mesh>
-            <uri>model://Extinguisher/meshes/Extinguisher.dae</uri>
+            <uri>model://fire_extinguisher/meshes/extinguisher.dae</uri>
           </mesh>
         </geometry>
       </collision>
       <visual name='visual'>
         <geometry>
           <mesh>
-            <uri>model://Extinguisher/meshes/Extinguisher.dae</uri>
+            <uri>model://fire_extinguisher/meshes/extinguisher.dae</uri>
           </mesh>
-        </geometry>  
-        <visibility_flags>0xFFFFFFFF</visibility_flags>
-
+        </geometry>
       </visual>
     </link>
   </model>

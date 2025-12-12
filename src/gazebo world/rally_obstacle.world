@@ -1389,7 +1389,7 @@
         </link>
       </model>
       <model name='limo_gazebosim'>
-        <pose>8.01102 -0.983577 0.145011 -4.3e-05 1.3e-05 -1.25309</pose>
+        <pose>0 0 0.145011 -4.3e-05 1.3e-05 -1.25309</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
           <pose>8.01102 -0.983577 0.145011 -4.3e-05 1.3e-05 -1.25309</pose>
