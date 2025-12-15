@@ -121,11 +121,11 @@ def main():
     # 5. Result
     result = navigator.getResult()
     if result == TaskResult.SUCCEEDED:
-        print(' Long tour complete!')
+        print('✅ Long tour complete!')
     elif result == TaskResult.CANCELED:
-        print(' Canceled')
+        print('⚠️ Canceled')
     else:
-        print(' Failed')
+        print('❌ Failed')
 
     rclpy.shutdown()
 
